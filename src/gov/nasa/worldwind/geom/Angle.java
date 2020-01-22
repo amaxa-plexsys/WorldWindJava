@@ -267,8 +267,8 @@ public class Angle implements Comparable<Angle>
         return fromDMS(d, m, s).multiply(sign);
     }
 
-    public final double degrees;
-    public final double radians;
+    public double degrees;
+    public double radians;
 
     public Angle(Angle angle)
     {

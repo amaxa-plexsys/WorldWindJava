@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f540d0fa-05e9-475d-b23e-780c4fc76c82" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/testClasses/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Angle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3740">
+              <caret line="232" column="8" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/LatLon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Position.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Vec4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/BasicLayerFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/TiledImageLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="819" lean-forward="true" selection-start-line="819" selection-end-line="819" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/util/WWIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="2443" column="29" selection-start-line="2443" selection-start-column="15" selection-end-line="2443" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwindx/examples/EGM96Offsets.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>protected void assembleTiles(DrawContext dc)</find>
+      <find>listDescendantFilenames(parent, appendPathPart(pathname, filename), filter, recurseAfterMatch, matches);</find>
+      <find>public class WWXML</find>
+      <find>MercatorTiledImageLayer</find>
+      <find>checkandsetsectorreso</find>
+      <find>public static AVList getLevelSetConfigParams(LevelSet</find>
+      <find>public class BasicMercatorTiledImageLayer extends MercatorTiledImageLayer</find>
+      <find>public class BasicLayerFactory extends BasicFactory</find>
+      <find>String layerType = WWXML.getText(domElement, &quot;@layerType&quot;);</find>
+      <find>createMercatorTiledImageLayer</find>
+      <find>public class Vec4</find>
+      <find>public class Position extends LatLon</find>
+      <find>blic class LatLon</find>
+      <find>blic static final LatLon ZERO = new LatLon(Angle.ZERO, Angle.ZERO)</find>
+      <find>dmsString = dmsString.replaceAll(&quot;[D|d|\u00B0|'|\u2019|\&quot;|\u201d]&quot;,</find>
+      <find>WXML.checkAndAppendIntegerlement(params, AVKey.MAX_ABSENT_TIL</find>
+      <find>getMercatorLevelSetConfigParams</find>
+      <find>ivate static Position eyePosition = new Position(An</find>
+      <find>worldwind.Model</find>
+      <find>eyePosition</find>
+      <find>listDescendantFilenamesFailed</find>
+      <find>listDescent</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/util/WWIO.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/util/WWXML.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/layers/mercator/MercatorTiledImageLayer.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/util/DataConfigurationUtils.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/layers/mercator/BasicMercatorTiledImageLayer.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/layers/BasicLayerFactory.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Vec4.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Position.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/geom/LatLon.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Angle.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/worldwind/layers/TiledImageLayer.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="62" />
+    <option name="y" value="384" />
+    <option name="width" value="1936" />
+    <option name="height" value="1035" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ApplicationTemplate">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationTemplate" />
+      <item itemvalue="Application.KMLViewer" />
+      <item itemvalue="Application.WMSLayerManager" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f540d0fa-05e9-475d-b23e-780c4fc76c82" name="Default" comment="" />
+      <created>1546991708980</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546991708980</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="1186" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1825" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="SBT Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+    </layout>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="build" isVisible="true" />
+        <filter targetName="clean" isVisible="true" />
+        <filter targetName="assemble" isVisible="true" />
+        <filter targetName="assembleDebug" isVisible="true" />
+        <filter targetName="assembleRelease" isVisible="true" />
+        <filter targetName="compileDebugSources" isVisible="false" />
+        <filter targetName="compileReleaseSources" isVisible="false" />
+        <filter targetName="bundleDebug" isVisible="false" />
+        <filter targetName="bundleRelease" isVisible="false" />
+        <filter targetName="assembleJavadoc" isVisible="true" />
+        <filter targetName="compileJavadocSources" isVisible="false" />
+        <filter targetName="bundleJavadoc" isVisible="false" />
+        <filter targetName="assembleWebStart" isVisible="true" />
+        <filter targetName="compileWebStartConfiguration" isVisible="false" />
+        <filter targetName="bundleWebStartLibraries" isVisible="false" />
+        <filter targetName="signWebStartSources" isVisible="false" />
+        <filter targetName="bundleWebStart" isVisible="false" />
+        <filter targetName="bundleWebStartSigned" isVisible="false" />
+        <filter targetName="bundleWebStartUnsigned" isVisible="false" />
+        <filter targetName="keystoreAvailable" isVisible="false" />
+        <filter targetName="assembleSdkArchive" isVisible="false" />
+        <filter targetName="test" isVisible="true" />
+        <filter targetName="unitTest" isVisible="false" />
+        <filter targetName="compileUnitTestSources" isVisible="false" />
+        <filter targetName="runUnitTest" isVisible="false" />
+        <filter targetName="assembleMilStd2525" isVisible="true" />
+        <filter targetName="compileMilStd2525" isVisible="false" />
+        <filter targetName="bundleMilStd2525" isVisible="false" />
+        <filter targetName="help.unpackJogl" isVisible="false" />
+        <filter targetName="help.packJogl" isVisible="false" />
+        <filter targetName="help.unpackGdal" isVisible="false" />
+        <filter targetName="help.packGdal" isVisible="false" />
+        <filter targetName="help.unpackVpf" isVisible="false" />
+        <filter targetName="help.packVpf" isVisible="false" />
+        <filter targetName="help.assembleWebviewLibrary" isVisible="false" />
+      </targetFilters>
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/util/WWXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="2928" column="48" lean-forward="true" selection-start-line="2928" selection-start-column="48" selection-end-line="2928" selection-end-column="48" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/mercator/MercatorTiledImageLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="1151" column="9" lean-forward="true" selection-start-line="1151" selection-start-column="9" selection-end-line="1151" selection-end-column="9" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/mercator/BasicMercatorTiledImageLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/util/DataConfigurationUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1330" column="13" selection-start-line="1330" selection-start-column="13" selection-end-line="1330" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/p4v/AG-Main_splinter_1666/external/WorldWind/worldwind-2.0.0/src/gov/nasa/worldwind/geom/Position#2.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/p4v/AG-Main_splinter_1666/external/WorldWind/worldwind-2.0.0/src/gov/nasa/worldwind/geom/Vec4#2.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Angle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3740">
+          <caret line="232" column="8" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/LatLon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/geom/Vec4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/BasicLayerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwindx/examples/EGM96Offsets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/layers/TiledImageLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="819" lean-forward="true" selection-start-line="819" selection-end-line="819" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/worldwind/util/WWIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="2443" column="29" selection-start-line="2443" selection-start-column="15" selection-end-line="2443" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="p4-ProjectCache">
+    <option name="serverState">
+      <list />
+    </option>
+    <option name="clientState">
+      <list />
+    </option>
+    <option name="pendingActions">
+      <list />
+    </option>
+    <option name="changelistState">
+      <State>
+        <option name="lastPendingChangelistId" value="-2" />
+        <option name="linkedChangelistMap">
+          <list />
+        </option>
+        <option name="pendingChangelistMap">
+          <list />
+        </option>
+      </State>
+    </option>
+  </component>
+</project>

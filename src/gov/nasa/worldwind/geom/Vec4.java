@@ -26,10 +26,10 @@ public class Vec4
     public static final Vec4 UNIT_W = new Vec4(0, 0, 0, 1);
     public static final Vec4 UNIT_NEGATIVE_W = new Vec4(0, 0, 0, -1);
 
-    public final double x;
-    public final double y;
-    public final double z;
-    public final double w;
+    public double x;
+    public double y;
+    public double z;
+    public double w;
 
     // Default W-component will be 1 to handle Matrix transformation.
     private static final double DEFAULT_W = 1.0;

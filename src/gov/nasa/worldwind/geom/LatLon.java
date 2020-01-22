@@ -30,8 +30,8 @@ public class LatLon
      */
     protected final static double NEAR_ZERO_THRESHOLD = 1e-15;
 
-    public final Angle latitude;
-    public final Angle longitude;
+    public Angle latitude;
+    public Angle longitude;
 
     /**
      * Factor method for obtaining a new <code>LatLon</code> from two angles expressed in radians.

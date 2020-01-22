@@ -1419,6 +1419,66 @@ public class DataConfigurationUtils
     }
 
     /**
+     * Parses LevelSet configuration parameters from the specified DOM document. This writes output as key-value pairs
+     * to params. If a parameter from the XML document already exists in params, that parameter is ignored.
+     * @param domElement The XML document root to parse for LevelSet configuration parameters.
+     * @param params The output key-value pairs which receive the LevelSet configuration parameters. A null reference is
+     *               permitted.
+     * @return A reference to params, or a new AVList if params is null.
+     */
+    public static AVList getMercatorLevelSetConfigParams(Element domElement, AVList params)
+    {
+        if (domElement == null)
+        {
+            String message = Logging.getMessage("nullValue.DocumentIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (params == null)
+        {
+            params = new AVListImpl();
+        }
+
+        XPath xpath = WWXML.makeXPath();
+
+        // Title and cache name properties.
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.DATASET_NAME, "DatasetName", xpath);
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.DATA_CACHE_NAME, "DataCacheName", xpath);
+
+        // Service properties.
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.SERVICE, "Service/URL", xpath);
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.SERVICE_NAME, "Service/@serviceName", xpath);
+
+        WWXML.checkAndSetLongParam(domElement, params, AVKey.EXPIRY_TIME, "ExpiryTime", xpath);
+        WWXML.checkAndSetDateTimeParam(domElement, params, AVKey.EXPIRY_TIME, "LastUpdate", DATE_TIME_PATTERN, xpath);
+
+        // Image format properties.
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.FORMAT_SUFFIX, "FormatSuffix", xpath);
+
+        // Tile structure properties.
+        WWXML.checkAndSetIntegerParam(domElement, params, AVKey.NUM_LEVELS, "NumLevels/@count", xpath);
+        WWXML.checkAndSetIntegerParam(domElement, params, AVKey.NUM_EMPTY_LEVELS, "NumLevels/@numEmpty", xpath);
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.INACTIVE_LEVELS, "NumLevels/@inactive", xpath);
+        WWXML.checkAndSetMercatorSectorParam(domElement, params, AVKey.SECTOR, "Sector", xpath);
+        WWXML.checkAndSetSectorResolutionParam(domElement, params, AVKey.SECTOR_RESOLUTION_LIMITS,
+            "SectorResolutionLimit", xpath);
+        WWXML.checkAndSetLatLonParam(domElement, params, AVKey.TILE_ORIGIN, "TileOrigin/LatLon", xpath);
+        WWXML.checkAndSetIntegerParam(domElement, params, AVKey.TILE_WIDTH, "TileSize/Dimension/@width", xpath);
+        WWXML.checkAndSetIntegerParam(domElement, params, AVKey.TILE_HEIGHT, "TileSize/Dimension/@height", xpath);
+        WWXML.checkAndSetLatLonParam(domElement, params, AVKey.LEVEL_ZERO_TILE_DELTA, "LevelZeroTileDelta/LatLon",
+            xpath);
+
+        // Retrieval properties.
+        WWXML.checkAndSetIntegerParam(domElement, params, AVKey.MAX_ABSENT_TILE_ATTEMPTS,
+            "AbsentTiles/MaxAttempts", xpath);
+        WWXML.checkAndSetTimeParamAsInteger(domElement, params, AVKey.MIN_ABSENT_TILE_CHECK_INTERVAL,
+            "AbsentTiles/MinCheckInterval/Time", xpath);
+
+        return params;
+    }
+
+    /**
      * Gathers LevelSet configuration parameters from a specified LevelSet reference. This writes output as key-value
      * pairs params. If a parameter from the XML document already exists in params, that parameter is ignored. Supported
      * key and parameter names are: <table> <th><td>Parameter</td><td>Element Path</td><td>Type</td></th> <tr><td>{@link

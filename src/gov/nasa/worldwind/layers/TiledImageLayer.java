@@ -30,6 +30,8 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 public abstract class TiledImageLayer extends AbstractLayer
 {
+    //private static Position eyePosition = new Position(Angle.fromRadians(0.0),Angle.fromRadians(0.0),0.0);
+
     // Infrastructure
     protected static final LevelComparer levelComparer = new LevelComparer();
     protected final LevelSet levels;
@@ -338,6 +340,18 @@ public abstract class TiledImageLayer extends AbstractLayer
 
     protected void assembleTiles(DrawContext dc)
     {
+       //Angle latitudeDifference = eyePosition.latitude.subtract(dc.getView().getCurrentEyePosition().latitude);
+       //Angle longitudeDifference = eyePosition.longitude.subtract(dc.getView().getCurrentEyePosition().longitude);
+       //double altitudeDifference = eyePosition.getAltitude() - dc.getView().getCurrentEyePosition().getAltitude();
+
+       //if (latitudeDifference.degrees == 0 &&
+       //    longitudeDifference.degrees == 0 &&
+       //    altitudeDifference == 0){
+       //    return;
+       //}
+
+       //eyePosition = dc.getView().getCurrentEyePosition();
+
         this.currentTiles.clear();
 
         for (TextureTile tile : this.getTopLevels())

@@ -10,6 +10,7 @@ import gov.nasa.worldwind.Configuration;
 import gov.nasa.worldwind.avlist.*;
 import gov.nasa.worldwind.exception.WWRuntimeException;
 import gov.nasa.worldwind.geom.*;
+import gov.nasa.worldwind.layers.mercator.MercatorSector;
 import gov.nasa.worldwind.render.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -1401,6 +1402,39 @@ public class WWXML
             return null;
 
         return new Sector(sw.latitude, ne.latitude, sw.longitude, ne.longitude);
+    }
+
+    /**
+     * Returns the MercatorSector value of an element identified by an XPath expression
+     * @param context The context from which to start the XPath search.
+     * @param path The Xpath expression. If null, indicates that the context is the Sector element itself. If non-null,
+     *             the context is searched for a Sector element using the expression.
+     * @param xpath An XPath object to use for the search. This allows the caller to reuse XPath objects when performing
+     *              multiple searches. May be null.
+     * @return The value of an element matching the XPath expression, or null if no match is found or the match does not
+     * contain a MercatorSector.
+     */
+    public static Sector getMercatorSector(Element context, String path, XPath xpath)
+    {
+        if (context == null)
+        {
+            String message = Logging.getMessage("nullValue.ContextIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        Element el = path == null ? context : getElement(context, path, xpath);
+        if (el == null)
+            return null;
+
+        LatLon sw = getLatLon(el, "SouthWest/LatLon", xpath);
+        LatLon ne = getLatLon(el, "NorthEast/LatLon", xpath);
+
+        if (sw == null || ne == null)
+            return null;
+
+        return new MercatorSector(sw.latitude.degrees / 90.0, ne.latitude.degrees / 90.0,
+            sw.longitude, ne.longitude);
     }
 
     /**
@@ -2868,6 +2902,46 @@ public class WWXML
         if (o == null)
         {
             Sector sector = getSector(context, paramName, xpath);
+            if (sector != null)
+                params.setValue(paramKey, sector);
+        }
+    }
+
+    public static void checkAndSetMercatorSectorParam(Element context, AVList params, String paramKey, String paramName,
+        XPath xpath)
+    {
+        if (context == null)
+        {
+            String message = Logging.getMessage("nullValue.ElementIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (params == null)
+        {
+            String message = Logging.getMessage("nullValue.ParametersIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (paramKey == null)
+        {
+            String message = Logging.getMessage("nullValue.ParameterKeyIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (paramName == null)
+        {
+            String message = Logging.getMessage("nullValue.ParameterNameIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        Object o = params.getValue(paramKey);
+        if (o == null)
+        {
+            Sector sector = getMercatorSector(context, paramName, xpath);
             if (sector != null)
                 params.setValue(paramKey, sector);
         }

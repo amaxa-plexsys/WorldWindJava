@@ -8,6 +8,7 @@ package gov.nasa.worldwind.layers;
 import gov.nasa.worldwind.*;
 import gov.nasa.worldwind.avlist.*;
 import gov.nasa.worldwind.exception.*;
+import gov.nasa.worldwind.layers.mercator.BasicMercatorTiledImageLayer;
 import gov.nasa.worldwind.ogc.*;
 import gov.nasa.worldwind.ogc.wms.*;
 import gov.nasa.worldwind.util.*;
@@ -299,6 +300,10 @@ public class BasicLayerFactory extends BasicFactory
             {
                 layer = this.createShapefileLayer(domElement, params);
             }
+            else if (layerType != null && layerType.equals("MercatorTiledImageLayer"))
+            {
+                layer = this.createMercatorTiledImageLayer(domElement, params);
+            }
             else
             {
                 String msg = Logging.getMessage("generic.UnrecognizedLayerType", layerType);
@@ -358,6 +363,33 @@ public class BasicLayerFactory extends BasicFactory
 //
 //        String name = layer.getStringValue(AVKey.DISPLAY_NAME);
 //        System.out.println(name);
+
+        String actuate = WWXML.getText(domElement, "@actuate");
+        layer.setEnabled(actuate != null && actuate.equals("onLoad"));
+
+        return layer;
+    }
+
+    /**
+     * Create a MercatorTiledImageLayer described by an XML layer description.
+     * @param domElement The XML element describing the layer to create. The element must include a service name
+     *                   identifying the type of service to use to retrieve layer data. Recognized service types are
+     *                   "Offline".
+     * @param params Any parameters to apply when creating the layer.
+     * @return A new layer.
+     */
+    protected Layer createMercatorTiledImageLayer(Element domElement, AVList params)
+    {
+        Layer layer;
+
+        String serviceName = WWXML.getText(domElement, "Service/@serviceName");
+
+        if ("Offline".equals(serviceName)) {
+            layer = new BasicMercatorTiledImageLayer(domElement, params);
+        } else {
+            String msg = "Unsupported layer type (service name not Offline for MercatorTiledImageLayer).";
+            throw new WWUnrecognizedException(msg);
+        }
 
         String actuate = WWXML.getText(domElement, "@actuate");
         layer.setEnabled(actuate != null && actuate.equals("onLoad"));

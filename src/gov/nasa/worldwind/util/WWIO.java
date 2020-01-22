@@ -10,6 +10,7 @@ import com.jogamp.common.nio.Buffers;
 import gov.nasa.worldwind.Configuration;
 import gov.nasa.worldwind.avlist.AVKey;
 import gov.nasa.worldwind.exception.WWRuntimeException;
+import javafx.util.Pair;
 
 import java.io.*;
 import java.net.*;
@@ -2426,6 +2427,105 @@ public class WWIO
         for (String filename : names)
         {
             listDescendantFilenames(parent, appendPathPart(pathname, filename), filter, recurseAfterMatch, matches);
+        }
+    }
+    /*
+         * Added method to return failures
+         */
+    public static Pair<String, String>[] listDescendantFilenamesFailed(File file, FileFilter filter)
+    {
+        if (file == null)
+        {
+            String msg = Logging.getMessage("nullValue.FileIsNull");
+            Logging.logger().severe(msg);
+            throw new IllegalArgumentException(msg);
+        }
+
+        return listDescendantFilenamesFailed(file, filter, true);
+    }
+
+    /*
+     * Added method to return failures
+     */
+    public static Pair<String, String>[] listDescendantFilenamesFailed(File file, FileFilter filter, boolean recurseAfterMatch)
+    {
+        if (file == null)
+        {
+            String msg = Logging.getMessage("nullValue.FileIsNull");
+            Logging.logger().severe(msg);
+            throw new IllegalArgumentException(msg);
+        }
+
+        // List the file and directory names in the specified file. If the returned array is null, then the specified
+        // file does not denote a directory.
+        if (file.list() == null)
+            return null;
+
+        ArrayList<Pair<String,String>> matchesAndFailures = new ArrayList<Pair<String,String>>();
+        listDescendantFilenamesFailed(file, null, filter, recurseAfterMatch, matchesAndFailures);
+
+        return matchesAndFailures.toArray(new Pair[matchesAndFailures.size()]);
+    }
+
+    /*
+     * Added method to return failures
+     */
+    protected static void listDescendantFilenamesFailed(File parent, String pathname, FileFilter filter,
+        boolean recurseAfterMatch, Collection<Pair<String,String>> matches)
+    {
+        // Create a file pointing to the file denoted by the parent file and child pathname string. Use the parent file
+        // if the pathname string is null.
+        File file = (pathname != null) ? new File(parent, pathname) : parent;
+
+        // List the file and directory names in the specified file. Exit if the returned filename array is null,
+        // indicating that the specified file does not denote a directory.
+        String[] names = file.list();
+        if (names == null)
+            return;
+
+        boolean haveMatch = false;
+
+        // Collect the non-null pathnames which match the specified filter, and collect the non-null directory names
+        // in a temporary list.
+        for (String filename : names)
+        {
+            // Ignore null or empty filenames.
+            if (filename == null || filename.length() == 0)
+                continue;
+
+            // If the filter is null, then all pathnames are accepted.
+            File tempFile = new File(file, filename);
+
+            String extension = "";
+            if(filename.contains("."))
+                extension = filename.substring(filename.lastIndexOf("."));
+            if (filter != null && !filter.accept(tempFile))
+            {
+                if(!extension.equalsIgnoreCase(".xml"))
+                {
+                    continue;
+                }
+                else
+                {
+                    matches.add(new Pair<String, String>(appendPathPart(pathname, filename), "Failed"));
+                    haveMatch = true;
+                    continue;
+                }
+            }
+
+            matches.add(new Pair<String,String>(appendPathPart(pathname, filename),"Success"));
+            haveMatch = true;
+        }
+
+        // Exit if any of the file or directories in the specified file match the file filter, and the caller has
+        // specified to stop recursing after a match.
+        if (haveMatch && !recurseAfterMatch)
+            return;
+
+        // Recursively process the contents of each path .
+        for (String filename : names)
+        {
+            listDescendantFilenamesFailed(parent, appendPathPart(pathname, filename), filter, recurseAfterMatch, matches);
         }
     }
 

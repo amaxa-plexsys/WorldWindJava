@@ -18,7 +18,7 @@ public class Position extends LatLon
 {
     public static final Position ZERO = new Position(Angle.ZERO, Angle.ZERO, 0d);
 
-    public final double elevation;
+    public double elevation;
 
     public static Position fromRadians(double latitude, double longitude, double elevation)
     {

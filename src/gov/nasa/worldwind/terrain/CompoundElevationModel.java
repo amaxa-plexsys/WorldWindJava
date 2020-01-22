@@ -111,7 +111,9 @@ public class CompoundElevationModel extends AbstractElevationModel
         }
 
         this.elevationModels.add(em);
-        this.sortElevationModels();
+        // todo - commenting out this line to make imported DTED elevation data work again
+        // without this fix, elevation data is loaded but not rendered (silent failure)
+        //this.sortElevationModels();
     }
 
     /**

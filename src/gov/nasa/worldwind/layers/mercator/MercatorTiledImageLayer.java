@@ -6,6 +6,7 @@
 package gov.nasa.worldwind.layers.mercator;
 
 import gov.nasa.worldwind.*;
+import gov.nasa.worldwind.avlist.*;
 import gov.nasa.worldwind.geom.*;
 import gov.nasa.worldwind.geom.Cylinder;
 import gov.nasa.worldwind.globes.Globe;
@@ -13,9 +14,11 @@ import gov.nasa.worldwind.layers.AbstractLayer;
 import gov.nasa.worldwind.render.*;
 import gov.nasa.worldwind.retrieve.*;
 import gov.nasa.worldwind.util.*;
+import org.w3c.dom.Element;
 
 import javax.imageio.ImageIO;
 import javax.media.opengl.*;
+import javax.xml.xpath.XPath;
 import java.awt.*;
 import java.awt.geom.*;
 import java.awt.image.*;
@@ -81,6 +84,8 @@ public abstract class MercatorTiledImageLayer extends AbstractLayer
 
         this.setPickEnabled(false); // textures are assumed to be terrain unless specifically indicated otherwise.
         this.tileCountName = this.getName() + " Tiles";
+
+        this.setValue(AVKey.SECTOR, this.levels.getSector());
     }
 
     @Override
@@ -1135,5 +1140,58 @@ public abstract class MercatorTiledImageLayer extends AbstractLayer
                 return null;
             }
         }
+    }
+
+    public static AVList getMercatorTiledImageLayerConfigParams(Element domElement, AVList params)
+    {
+        if (domElement == null)
+        {
+            String message = Logging.getMessage("nullValue.DocumentIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (params == null)
+            params = new AVListImpl();
+
+        XPath xpath = WWXML.makeXPath();
+
+        // Common layer properties.
+        AbstractLayer.getLayerConfigParams(domElement, params);
+
+        // LevelSet properties.
+        DataConfigurationUtils.getMercatorLevelSetConfigParams(domElement, params);
+
+        // Service properties.
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.SERVICE_NAME, "Service/@serviceName", xpath);
+        WWXML.checkAndSetBooleanParam(domElement, params, AVKey.RETRIEVE_PROPERTIES_FROM_SERVICE,
+            "RetrievePropertiesFromService", xpath);
+
+        // Image format properties.
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.IMAGE_FORMAT, "ImageFormat", xpath);
+        WWXML.checkAndSetStringParam(domElement, params, AVKey.TEXTURE_FORMAT, "TextureFormat", xpath);
+        WWXML.checkAndSetUniqueStringsParam(domElement, params, AVKey.AVAILABLE_IMAGE_FORMATS,
+            "AvailableImageFormats/ImageFormat", xpath);
+
+        // Optional behavior properties.
+        WWXML.checkAndSetBooleanParam(domElement, params, AVKey.FORCE_LEVEL_ZERO_LOADS, "ForceLevelZeroLoads", xpath);
+        WWXML.checkAndSetBooleanParam(domElement, params, AVKey.RETAIN_LEVEL_ZERO_TILES, "RetainLevelZeroTiles", xpath);
+        WWXML.checkAndSetBooleanParam(domElement, params, AVKey.USE_MIP_MAPS, "UseMipMaps", xpath);
+        WWXML.checkAndSetBooleanParam(domElement, params, AVKey.USE_TRANSPARENT_TEXTURES, "UseTransparentTextures",
+            xpath);
+        WWXML.checkAndSetDoubleParam(domElement, params, AVKey.DETAIL_HINT, "DetailHint", xpath);
+        WWXML.checkAndSetColorArrayParam(domElement, params, AVKey.TRANSPARENCY_COLORS, "TransparencyColors/Color",
+            xpath);
+
+        // Retrieval properties. Convert the Long time values to Integers, because BasicTiledImageLayer is expecting
+        // Integer values.
+        WWXML.checkAndSetTimeParamAsInteger(domElement, params, AVKey.URL_CONNECT_TIMEOUT,
+            "RetrievalTimeouts/ConnectTimeout/Time", xpath);
+        WWXML.checkAndSetTimeParamAsInteger(domElement, params, AVKey.URL_READ_TIMEOUT,
+            "RetrievalTimeouts/ReadTimeout/Time", xpath);
+        WWXML.checkAndSetTimeParamAsInteger(domElement, params, AVKey.RETRIEVAL_QUEUE_STALE_REQUEST_LIMIT,
+            "RetrievalTimeouts/StaleRequestLimit/Time", xpath);
+
+        return params;
     }
 }

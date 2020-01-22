@@ -9,15 +9,10 @@
 <!--DEPRECATED. Use LandsatI3WMSLayer2.xml-->
 <Layer version="1" layerType="TiledImageLayer">
     <DisplayName>i-cubed Landsat</DisplayName>
-    <Service serviceName="OGC:WMS" version="1.3">
-        <GetCapabilitiesURL>https://data.worldwind.arc.nasa.gov/wms</GetCapabilitiesURL>
-        <GetMapURL>https://data.worldwind.arc.nasa.gov/wms</GetMapURL>
-        <LayerNames>esat</LayerNames>
-    </Service>
-    <RetrievePropertiesFromService>true</RetrievePropertiesFromService>
+    <RetrievePropertiesFromService>false</RetrievePropertiesFromService>
     <!-- day month year hours:minutes:seconds timezone -->
     <LastUpdate>26 03 2009 00:00:00 GMT</LastUpdate>
-    <DataCacheName>Earth/NASA LandSat I3 WMS</DataCacheName>
+    <DataCacheName>Landsat7</DataCacheName>
     <ImageFormat>image/dds</ImageFormat>
     <AvailableImageFormats>
         <ImageFormat>image/png</ImageFormat>
@@ -45,7 +40,7 @@
     <UseTransparentTextures>true</UseTransparentTextures>
     <!--<ScreenCredit creditType="ScreenImage">-->
     <!--<FileName>images/32x32-icon-nasa.png</FileName>-->
-    <!--<Link>https://worldwind.arc.nasa.gov</Link>-->
+    <!--<Link>http://worldwind.arc.nasa.gov/java</Link>-->
     <!--</ScreenCredit>-->
     <RetrievalTimeouts>
         <ReadTimeout>

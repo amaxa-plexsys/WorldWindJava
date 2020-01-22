@@ -14,6 +14,7 @@ import gov.nasa.worldwind.geom.*;
 import gov.nasa.worldwind.render.DrawContext;
 import gov.nasa.worldwind.retrieve.*;
 import gov.nasa.worldwind.util.*;
+import org.w3c.dom.Element;
 
 import javax.imageio.ImageIO;
 import java.awt.image.*;
@@ -49,6 +50,57 @@ public class BasicMercatorTiledImageLayer extends MercatorTiledImageLayer
     {
         this(new LevelSet(params));
         this.setValue(AVKey.CONSTRUCTION_PARAMETERS, params);
+
+        String s = params.getStringValue(AVKey.DISPLAY_NAME);
+        if (s != null)
+            this.setName(s);
+    }
+
+    public BasicMercatorTiledImageLayer(Element domElement, AVList params)
+    {
+        this(getParamsFromDocument(domElement, params));
+    }
+
+    protected static AVList getParamsFromDocument(Element domElement, AVList params)
+    {
+        if (domElement == null)
+        {
+            String message = Logging.getMessage("nullValue.DocumentIsNull");
+            Logging.logger().severe(message);
+            throw new IllegalArgumentException(message);
+        }
+
+        if (params == null)
+            params = new AVListImpl();
+
+        getMercatorTiledImageLayerConfigParams(domElement, params);
+        setFallbacks(params);
+
+        return params;
+    }
+
+    protected static void setFallbacks(AVList params)
+    {
+        if (params.getValue(AVKey.LEVEL_ZERO_TILE_DELTA) == null)
+        {
+            Angle delta = Angle.fromDegrees(36);
+            params.setValue(AVKey.LEVEL_ZERO_TILE_DELTA, new LatLon(delta, delta));
+        }
+
+        if (params.getValue(AVKey.TILE_WIDTH) == null)
+            params.setValue(AVKey.TILE_WIDTH, 512);
+
+        if (params.getValue(AVKey.TILE_HEIGHT) == null)
+            params.setValue(AVKey.TILE_HEIGHT, 512);
+
+        if (params.getValue(AVKey.FORMAT_SUFFIX) == null)
+            params.setValue(AVKey.FORMAT_SUFFIX, ".dds");
+
+        if (params.getValue(AVKey.NUM_LEVELS) == null)
+            params.setValue(AVKey.NUM_LEVELS, 19); // approximately 0.1 meters per pixel
+
+        if (params.getValue(AVKey.NUM_EMPTY_LEVELS) == null)
+            params.setValue(AVKey.NUM_EMPTY_LEVELS, 0);
     }
 
     protected void forceTextureLoad(MercatorTextureTile tile)
